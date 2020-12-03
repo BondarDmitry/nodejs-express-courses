@@ -7,6 +7,7 @@ const homeRoutes = require("./routes/home");
 const addRoutes = require("./routes/add");
 const coursesRoutes = require("./routes/courses");
 const cardRoutes = require("./routes/card");
+const ordersRoutes = require("./routes/orders");
 const mongoose = require("mongoose");
 const {
     allowInsecurePrototypeAccess,
@@ -44,11 +45,13 @@ app.use("/", homeRoutes);
 app.use("/add", addRoutes);
 app.use("/courses", coursesRoutes);
 app.use("/card", cardRoutes);
+app.use("/orders", ordersRoutes);
 
 const PORT = process.env.PORT || 4000;
 
 async function start() {
     try {
+        const pass = "eTZiVn69r8IVDo9J";
         const url = `mongodb+srv://dmitry:${pass}@cluster0.hzxmo.mongodb.net/shop`;
         await mongoose.connect(url, {
             useNewUrlParser: true,
