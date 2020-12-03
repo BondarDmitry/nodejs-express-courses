@@ -51,7 +51,6 @@ const PORT = process.env.PORT || 4000;
 
 async function start() {
     try {
-        const pass = "eTZiVn69r8IVDo9J";
         const url = `mongodb+srv://dmitry:${pass}@cluster0.hzxmo.mongodb.net/shop`;
         await mongoose.connect(url, {
             useNewUrlParser: true,
