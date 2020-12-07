@@ -28,9 +28,13 @@ const $card = document.querySelector("#card");
 if ($card) {
     $card.addEventListener("click", (event) => {
         if (event.target.classList.contains("js-remove")) {
+            const csrf = event.target.dataset.csrf;
             const id = event.target.dataset.id;
             fetch("/card/remove/" + id, {
                 method: "delete",
+                headers: {
+                    "X-XSRF-TOKEN": csrf,
+                },
             })
                 .then((response) => response.json())
                 .then((card) => {

@@ -1,6 +1,8 @@
 // import express from "express";
 const express = require("express");
 const path = require("path");
+const csrf = require("csurf");
+const flash = require("connect-flash");
 const Handlebars = require("handlebars");
 const exphbs = require("express-handlebars");
 const session = require("express-session");
@@ -15,10 +17,10 @@ const mongoose = require("mongoose");
 const {
     allowInsecurePrototypeAccess,
 } = require("@handlebars/allow-prototype-access");
-const User = require("./models/user");
 const varMiddleware = require("./middleware/variables");
 const userMiddleware = require("./middleware/user");
 
+const pass = "eTZiVn69r8IVDo9J";
 const MONGODB_URI = `mongodb+srv://dmitry:${pass}@cluster0.hzxmo.mongodb.net/shop`;
 
 const app = express();
@@ -50,6 +52,8 @@ app.use(
     })
 );
 
+app.use(csrf());
+app.use(flash());
 app.use(varMiddleware);
 app.use(userMiddleware);
 
