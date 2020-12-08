@@ -54,3 +54,10 @@
     display: block;
     width: 120px;
 }
+
+.avatar {
+    display: block;
+    width: 100%;
+    height: 100%;
+    max-width: 300px;
+}
