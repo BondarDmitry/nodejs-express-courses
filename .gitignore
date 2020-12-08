@@ -9,6 +9,9 @@ jspm_packages/
 .env
 .env.test
 
+keys/
+keys/*
+
 
 # Stores VSCode versions used for testing VSCode extensions
 .vscode-test

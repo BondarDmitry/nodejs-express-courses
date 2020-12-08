@@ -48,3 +48,9 @@
     background-color: rgba(255, 0, 0, 0.3);
     color: red;
 }
+
+.reset-password {
+    margin-top: 1rem;
+    display: block;
+    width: 120px;
+}

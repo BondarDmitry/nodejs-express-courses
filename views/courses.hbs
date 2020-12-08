@@ -16,7 +16,11 @@
                 <a href="/courses/{{id}}" target="_blanck">Открыть курс</a>
 
                 {{#if @root.isAuth}}
+
+                {{#ifeq userId._id  @root.userId}}
                 <a href="/courses/{{id}}/edit?allow=true">Редактировать курс</a>
+                {{/ifeq}}
+
                 <form action="/card/add" method="post">
                     <input type="hidden" name="id" value={{id}}>
                     <input type="hidden" name="_csrf" value="{{@root.csrf}}" />
