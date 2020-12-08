@@ -20,6 +20,7 @@ const {
 const varMiddleware = require("./middleware/variables");
 const userMiddleware = require("./middleware/user");
 const keys = require("./keys");
+const ErrorHandler = require("./middleware/error");
 
 const app = express();
 
@@ -64,6 +65,8 @@ app.use("/orders", ordersRoutes);
 app.use("/auth", authRoutes);
 
 const PORT = process.env.PORT || 4000;
+
+app.use(ErrorHandler);
 
 async function start() {
     try {
